@@ -6,5 +6,5 @@ AU Connect uses third-party authentication providers (such as LinkedIn OAuth), a
 ## 🌐 Live Privacy Policy
 
 Once GitHub Pages is enabled, the policy will be available at:
-https://Minn01.github.io/au-connect-privacy/
+https://minn01.github.io/au-connect-privacy
 
