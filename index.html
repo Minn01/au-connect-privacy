@@ -2,110 +2,781 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AU Connect - Privacy Policy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn how AU Connect collects, uses, stores, and protects your personal information.">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Privacy Policy — AU Connect</title>
+    <link rel="icon" type="image/png" href="au-connect-logo.png">
+    <link rel="apple-touch-icon" href="au-connect-logo.png">
     <style>
+        :root {
+            --ink: #0a0a0a;
+            --muted: #656565;
+            --line: #dedede;
+            --soft: #f4f4f1;
+            --paper: #fff;
+            --header-height: 72px;
+            --content-width: 1240px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 28px);
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            padding: 40px;
-            background: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-        }
-
-        h1,
-        h2 {
-            color: #0056b3;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
-            color: #0056b3;
+            color: inherit;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
         }
 
-        .date {
-            font-size: 14px;
-            margin-bottom: 20px;
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .reading-progress {
+            position: fixed;
+            inset: 0 auto auto 0;
+            z-index: 100;
+            width: 100%;
+            height: 3px;
+            pointer-events: none;
+        }
+
+        .reading-progress__bar {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #ef171f;
+            transform: scaleX(0);
+            transform-origin: left;
+            will-change: transform;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: var(--header-height);
+            background: rgba(10, 10, 10, .96);
+            color: #fff;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            width: min(calc(100% - 48px), var(--content-width));
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 750;
+            letter-spacing: -.02em;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .header-label {
+            color: #b6b6b6;
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            background: var(--soft);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-inner {
+            width: min(calc(100% - 48px), var(--content-width));
+            min-height: 480px;
+            margin: 0 auto;
+            display: grid;
+            place-content: center;
+            padding: 88px 0;
+            text-align: center;
+        }
+
+        h1 {
+            max-width: 850px;
+            margin: 0;
+            font-size: clamp(52px, 7.5vw, 96px);
+            font-weight: 750;
+            letter-spacing: -.065em;
+            line-height: .96;
+        }
+
+        .hero-description {
+            max-width: 670px;
+            margin: 30px auto 0;
+            color: var(--muted);
+            font-size: clamp(19px, 2vw, 24px);
+            line-height: 1.45;
+            letter-spacing: -.02em;
+        }
+
+        .updated {
+            margin: 34px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: .04em;
+        }
+
+        .policy-layout {
+            width: min(calc(100% - 48px), var(--content-width));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 290px minmax(0, 760px);
+            gap: clamp(56px, 9vw, 150px);
+            align-items: start;
+            padding: 104px 0 140px;
+        }
+
+        .section-nav {
+            position: sticky;
+            top: calc(var(--header-height) + 32px);
+            max-height: calc(100vh - var(--header-height) - 64px);
+            overflow: auto;
+            scrollbar-width: none;
+        }
+
+        .section-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .section-nav__label {
+            margin: 0 0 20px 22px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .section-nav ol {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-left: 1px solid var(--line);
+        }
+
+        .section-nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-nav li::before {
+            display: none;
+        }
+
+        .section-nav a {
+            position: relative;
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 10px;
+            padding: 9px 0 9px 22px;
             color: #777;
+            font-size: 13px;
+            line-height: 1.35;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .section-nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -2px;
+            width: 3px;
+            background: var(--ink);
+            opacity: 0;
+            transform: scaleY(.35);
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+
+        .section-nav a:hover,
+        .section-nav a[aria-current="true"] {
+            color: var(--ink);
+        }
+
+        .section-nav a[aria-current="true"] {
+            font-weight: 650;
+        }
+
+        .section-nav a[aria-current="true"]::before {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        .nav-number {
+            color: #aaa;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .policy-content {
+            min-width: 0;
+        }
+
+        .policy-section {
+            padding: 0 0 74px;
+            scroll-margin-top: calc(var(--header-height) + 28px);
+        }
+
+        .policy-section+.policy-section {
+            padding-top: 74px;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-number {
+            display: block;
+            margin-bottom: 13px;
+            color: #969696;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .1em;
+        }
+
+        h2 {
+            margin: 0 0 30px;
+            font-size: clamp(31px, 4vw, 48px);
+            font-weight: 690;
+            letter-spacing: -.045em;
+            line-height: 1.08;
+        }
+
+        h3 {
+            margin: 38px 0 12px;
+            font-size: 21px;
+            letter-spacing: -.025em;
+            line-height: 1.3;
+        }
+
+        p {
+            margin: 0 0 21px;
+        }
+
+        ul {
+            margin: 18px 0 26px;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            top: .75em;
+            left: 2px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--ink);
+        }
+
+        .contact-card {
+            margin-top: 32px;
+            padding: 26px 28px;
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .contact-card span {
+            display: block;
+            margin-bottom: 6px;
+            color: #aaa;
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .contact-card a {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 650;
+        }
+
+        .site-footer {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .footer-inner {
+            width: min(calc(100% - 48px), var(--content-width));
+            margin: 0 auto;
+            padding: 50px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+
+        .back-to-top {
+            color: #bdbdbd;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            color: #fff;
+        }
+
+        @media (max-width:850px) {
+            :root {
+                --header-height: 64px;
+            }
+
+            .header-inner,
+            .hero-inner,
+            .policy-layout,
+            .footer-inner {
+                width: min(calc(100% - 32px), var(--content-width));
+            }
+
+            .hero-inner {
+                min-height: 400px;
+                padding: 72px 0;
+            }
+
+            .policy-layout {
+                grid-template-columns: 1fr;
+                gap: 54px;
+                padding: 0 0 100px;
+            }
+
+            .section-nav {
+                top: var(--header-height);
+                z-index: 40;
+                width: calc(100% + 32px);
+                max-height: none;
+                margin-left: -16px;
+                padding: 0 16px;
+                overflow-x: auto;
+                background: rgba(255, 255, 255, .96);
+                border-bottom: 1px solid var(--line);
+                backdrop-filter: blur(12px);
+            }
+
+            .section-nav__label {
+                display: none;
+            }
+
+            .section-nav ol {
+                display: flex;
+                width: max-content;
+                border-left: 0;
+            }
+
+            .section-nav a {
+                display: block;
+                padding: 18px 15px 16px;
+                white-space: nowrap;
+            }
+
+            .section-nav a::before {
+                top: auto;
+                right: 15px;
+                bottom: -1px;
+                left: 15px;
+                width: auto;
+                height: 2px;
+                transform: scaleX(.35);
+            }
+
+            .section-nav a[aria-current="true"]::before {
+                transform: scaleX(1);
+            }
+
+            .nav-number {
+                margin-right: 7px;
+            }
+
+            .policy-section:first-child {
+                padding-top: 6px;
+            }
+        }
+
+        @media (max-width:520px) {
+            body {
+                font-size: 16px;
+            }
+
+            .header-label {
+                display: none;
+            }
+
+            .hero-inner {
+                min-height: 360px;
+            }
+
+            h1 {
+                font-size: clamp(46px, 15vw, 64px);
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .policy-section {
+                padding-bottom: 58px;
+            }
+
+            .policy-section+.policy-section {
+                padding-top: 58px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+            }
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Privacy Policy — AU Connect</h1>
-        <p class="date">Last updated: January 2025</p>
-
-        <p>
-            AU Connect (“we”, “our”, “us”) provides sign-in and authentication features
-            for our web application. This Privacy Policy describes the information
-            we collect from users who choose to sign in using LinkedIn, how we use it,
-            and how we keep it secure.
-        </p>
-
-        <h2>1. Information We Collect</h2>
-        <p>When you authenticate using LinkedIn, we may collect:</p>
-        <ul>
-            <li>Your LinkedIn ID</li>
-            <li>Your full name</li>
-            <li>Your email address</li>
-            <li>Your LinkedIn profile picture URL</li>
-        </ul>
-        <p>
-            We do <strong>not</strong> collect employment history, education history, skills,
-            connections, private messages, or any other extended LinkedIn data.
-        </p>
-
-        <h2>2. How We Use Your Information</h2>
-        <p>Your information is used strictly to:</p>
-        <ul>
-            <li>Create and manage your AU Connect account</li>
-            <li>Verify your identity when signing in</li>
-            <li>Display your basic profile details inside the app</li>
-        </ul>
-        <p>
-            We do <strong>not</strong> sell your data, share it with third parties, or post on your
-            behalf on LinkedIn.
-        </p>
-
-        <h2>3. Data Storage & Security</h2>
-        <p>
-            We store only the minimum data required to create and maintain your account.
-            Reasonable security measures are taken to prevent unauthorized access or misuse.
-        </p>
-
-        <h2>4. Third-Party Services</h2>
-        <p>
-            We use LinkedIn’s OAuth 2.0 authentication service only for verifying your
-            identity. Your use of LinkedIn is subject to LinkedIn’s own
-            <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">
-                Privacy Policy</a>.
-        </p>
-
-        <h2>5. Contact</h2>
-        <p>
-            If you have any questions about this Privacy Policy, you can contact us at:
-        </p>
-        <p>
-            📧 <strong>min12200514@gmail.com</strong>
-        </p>
-
-        <h2>6. Changes to This Policy</h2>
-        <p>
-            We may update this Privacy Policy occasionally. Changes will be posted on this page
-            with an updated "Last updated" date.
-        </p>
-    </div>
+<body id="top">
+    <div class="reading-progress" aria-hidden="true"><span class="reading-progress__bar"></span></div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#top" aria-label="AU Connect home"><img src="au-connect-logo.png" alt=""><span>AU
+                    Connect</span></a>
+            <span class="header-label">Privacy Policy</span>
+        </div>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-inner">
+                <h1 id="page-title">Privacy Policy</h1>
+                <p class="hero-description">How AU Connect handles your information while helping the university
+                    community connect.</p>
+                <p class="updated"><time datetime="2026-10">Last updated October 2026</time></p>
+            </div>
+        </section>
+        <div class="policy-layout">
+            <nav class="section-nav" aria-label="Privacy policy sections">
+                <p class="section-nav__label">On this page</p>
+                <ol>
+                    <li><a href="#introduction" aria-current="true"><span
+                                class="nav-number">01</span><span>Introduction</span></a></li>
+                    <li><a href="#information-we-collect"><span class="nav-number">02</span><span>Information we
+                                collect</span></a></li>
+                    <li><a href="#how-we-use-information"><span class="nav-number">03</span><span>How we use
+                                information</span></a></li>
+                    <li><a href="#public-information"><span class="nav-number">04</span><span>Public
+                                information</span></a></li>
+                    <li><a href="#third-party-services"><span class="nav-number">05</span><span>Third-party
+                                services</span></a></li>
+                    <li><a href="#storage-and-security"><span class="nav-number">06</span><span>Storage and
+                                security</span></a></li>
+                    <li><a href="#sharing-and-disclosure"><span class="nav-number">07</span><span>Sharing and
+                                disclosure</span></a></li>
+                    <li><a href="#retention-and-deletion"><span class="nav-number">08</span><span>Retention and
+                                deletion</span></a></li>
+                    <li><a href="#rights-and-choices"><span class="nav-number">09</span><span>Your rights and
+                                choices</span></a></li>
+                    <li><a href="#childrens-privacy"><span class="nav-number">10</span><span>Children's
+                                privacy</span></a></li>
+                    <li><a href="#international-processing"><span class="nav-number">11</span><span>International
+                                processing</span></a></li>
+                    <li><a href="#policy-changes"><span class="nav-number">12</span><span>Policy changes</span></a></li>
+                    <li><a href="#contact"><span class="nav-number">13</span><span>Contact us</span></a></li>
+                </ol>
+            </nav>
+            <article class="policy-content">
+                <section class="policy-section" id="introduction">
+                    <span class="section-number">01</span>
+                    <h2>Introduction</h2>
+                    <p>AU Connect ("we", "our", or "us") is a social networking platform designed to connect students,
+                        alumni, professors, and other members of the Assumption University community.</p>
+                    <p>This Privacy Policy explains how AU Connect collects, uses, stores, and protects your personal
+                        information when you use our platform.</p>
+                    <p>By using AU Connect, you acknowledge that your information will be handled as described in this
+                        policy.</p>
+                </section>
+                <section class="policy-section" id="information-we-collect">
+                    <span class="section-number">02</span>
+                    <h2>Information we collect</h2>
+                    <p>We collect information necessary to provide and maintain AU Connect's features.</p>
+                    <h3>Account information</h3>
+                    <p>When you create an account or sign in, we may collect:</p>
+                    <ul>
+                        <li>Your name and email address.</li>
+                        <li>Your profile picture.</li>
+                        <li>Your account identifier from the authentication provider.</li>
+                        <li>Your authentication and session information.</li>
+                    </ul>
+                    <p>AU Connect supports third-party authentication providers. The information received may vary
+                        depending on the provider you choose.</p>
+                    <h3>Profile information</h3>
+                    <p>You may choose to provide additional information for your AU Connect profile, including:</p>
+                    <ul>
+                        <li>Academic and professional background.</li>
+                        <li>Biography and personal introduction.</li>
+                        <li>Skills, interests, and areas of expertise.</li>
+                        <li>Other profile details supported by the platform.</li>
+                    </ul>
+                    <p>Information you add to your profile may be visible to other users, depending on the platform's
+                        visibility settings and features.</p>
+                    <h3>User-generated content</h3>
+                    <p>When you use AU Connect, we may collect and store content you submit, including:</p>
+                    <ul>
+                        <li>Posts, articles, and comments.</li>
+                        <li>Images and videos.</li>
+                        <li>Documents and other supported attachments.</li>
+                        <li>Job postings and professional opportunities.</li>
+                        <li>Other content and information you choose to share through the platform.</li>
+                    </ul>
+                    <p>Content you publish may be accessible to other users. You should review the information you share
+                        before publishing it.</p>
+                    <h3>Usage and technical information</h3>
+                    <p>We may process technical information necessary to operate, maintain, and secure AU Connect,
+                        including authentication sessions, request information, and diagnostic or error information.</p>
+                    <p>The specific information collected depends on how you use the platform and the technical services
+                        involved.</p>
+                </section>
+                <section class="policy-section" id="how-we-use-information">
+                    <span class="section-number">03</span>
+                    <h2>How we use your information</h2>
+                    <p>We use your information for the following purposes:</p>
+                    <ul>
+                        <li><strong>Account management:</strong> Create, maintain, and manage your account.</li>
+                        <li><strong>Authentication:</strong> Verify your identity and maintain secure sign-in sessions.
+                        </li>
+                        <li><strong>Platform functionality:</strong> Display profiles, posts, comments, and other
+                            content you submit.</li>
+                        <li><strong>Networking:</strong> Help users discover and connect with members of the AU
+                            community.</li>
+                        <li><strong>Recommendations:</strong> Support features that suggest potentially relevant users
+                            or professional connections.</li>
+                        <li><strong>Professional opportunities:</strong> Enable users to share and discover jobs and
+                            other career-related content.</li>
+                        <li><strong>Platform security:</strong> Detect misuse, investigate technical issues, and protect
+                            accounts and services.</li>
+                        <li><strong>Maintenance and improvement:</strong> Diagnose problems and improve platform
+                            functionality.</li>
+                    </ul>
+                    <p>We aim to use personal information only for purposes relevant to operating and improving AU
+                        Connect.</p>
+                </section>
+                <section class="policy-section" id="public-information">
+                    <span class="section-number">04</span>
+                    <h2>Publicly visible information and content</h2>
+                    <p>AU Connect is designed to facilitate communication and networking within the university
+                        community.</p>
+                    <p>Depending on the platform's features and settings, information such as your name, profile
+                        picture, profile details, posts, comments, and other content you publish may be visible to other
+                        users.</p>
+                    <p>Please avoid publishing sensitive personal information or information belonging to other people
+                        without their permission.</p>
+                    <p>We cannot guarantee that other users will not copy, save, or redistribute information that they
+                        can access through the platform.</p>
+                </section>
+                <section class="policy-section" id="third-party-services">
+                    <span class="section-number">05</span>
+                    <h2>Third-party services</h2>
+                    <p>AU Connect relies on third-party services to support certain platform features. These services
+                        may include:</p>
+                    <ul>
+                        <li><strong>Authentication providers:</strong> Used to authenticate users and facilitate account
+                            access.</li>
+                        <li><strong>Cloud infrastructure and databases:</strong> Used to host the application and store
+                            account information and platform content.</li>
+                        <li><strong>Media storage services:</strong> Used to store and deliver supported images, videos,
+                            and other uploaded files.</li>
+                        <li><strong>Recommendation services:</strong> Used to process relevant profile information to
+                            provide user recommendations.</li>
+                    </ul>
+                    <p>These services may process information as necessary to provide their respective functions.</p>
+                    <p>Third-party services operate under their own terms and privacy policies. Their involvement does
+                        not mean that AU Connect endorses every aspect of their practices.</p>
+                    <p>We encourage users to review the privacy policies of relevant third-party services.</p>
+                </section>
+                <section class="policy-section" id="storage-and-security">
+                    <span class="section-number">06</span>
+                    <h2>Data storage and security</h2>
+                    <p>AU Connect uses databases, cloud infrastructure, and other technical services to store and
+                        process information required to operate the platform.</p>
+                    <p>We implement reasonable technical and organizational measures intended to protect personal
+                        information against unauthorized access, alteration, disclosure, or destruction.</p>
+                    <p>However, no system can guarantee absolute security. We cannot promise that information
+                        transmitted or stored electronically will always remain secure.</p>
+                    <p>Users are responsible for maintaining the security of their accounts and avoiding the disclosure
+                        of authentication credentials or sensitive information.</p>
+                </section>
+                <section class="policy-section" id="sharing-and-disclosure">
+                    <span class="section-number">07</span>
+                    <h2>Data sharing and disclosure</h2>
+                    <p>We do not sell users' personal information.</p>
+                    <p>We may process or disclose information in the following circumstances:</p>
+                    <ul>
+                        <li><strong>Service providers:</strong> To third-party providers that support the operation,
+                            hosting, storage, authentication, or maintenance of AU Connect.</li>
+                        <li><strong>Platform visibility:</strong> When you publish information or content that other
+                            users are permitted to access.</li>
+                        <li><strong>Security and legal obligations:</strong> When disclosure is reasonably necessary to
+                            address security incidents, enforce applicable rules, or comply with applicable legal
+                            requirements.</li>
+                        <li><strong>With your direction or consent:</strong> When you authorize a particular disclosure
+                            or use of your information.</li>
+                    </ul>
+                    <p>We seek to limit disclosures to what is reasonably necessary for the relevant purpose.</p>
+                </section>
+                <section class="policy-section" id="retention-and-deletion">
+                    <span class="section-number">08</span>
+                    <h2>Data retention and account deletion</h2>
+                    <p>We retain personal information for as long as reasonably necessary to provide the platform,
+                        maintain accounts, meet operational requirements, and address applicable legal or security
+                        obligations.</p>
+                    <p>If account deletion is available, users may use the designated account-management process to
+                        request deletion of their account and associated information.</p>
+                    <p>Some information may need to be retained for a limited period where necessary for security, legal
+                        compliance, or legitimate operational purposes.</p>
+                    <p>Deleting an account or content may not immediately remove every copy from backups, logs, or
+                        systems maintained by third-party service providers.</p>
+                </section>
+                <section class="policy-section" id="rights-and-choices">
+                    <span class="section-number">09</span>
+                    <h2>User rights and choices</h2>
+                    <p>Users can control certain information by choosing what to include in their profiles and what
+                        content to publish.</p>
+                    <p>Depending on applicable law and the platform's available features, users may have the right to:
+                    </p>
+                    <ul>
+                        <li>Request access to their personal information.</li>
+                        <li>Request corrections to inaccurate information.</li>
+                        <li>Request deletion of personal information.</li>
+                        <li>Object to or request restrictions on certain processing activities.</li>
+                        <li>Withdraw consent where processing relies on consent.</li>
+                    </ul>
+                    <p>Requests concerning personal information can be directed to the contact address below.</p>
+                    <p>We may need to verify your identity before processing a request. Some requests may be subject to
+                        applicable legal exceptions.</p>
+                </section>
+                <section class="policy-section" id="childrens-privacy">
+                    <span class="section-number">10</span>
+                    <h2>Children's privacy</h2>
+                    <p>AU Connect is intended for members of the university community and other eligible users.</p>
+                    <p>The platform is not intended to be used in violation of applicable age requirements or privacy
+                        laws. We do not knowingly seek to collect personal information from children where doing so
+                        would violate applicable law.</p>
+                    <p>If you believe that a child has provided personal information inappropriately, please contact us
+                        so that the situation can be reviewed.</p>
+                </section>
+                <section class="policy-section" id="international-processing">
+                    <span class="section-number">11</span>
+                    <h2>International data processing</h2>
+                    <p>AU Connect uses third-party infrastructure and services to operate the platform. Depending on the
+                        providers and their configurations, personal information may be stored or processed in countries
+                        other than the country where a user resides.</p>
+                    <p>Where applicable, we take reasonable steps to ensure that personal information is handled in
+                        accordance with relevant privacy requirements.</p>
+                </section>
+                <section class="policy-section" id="policy-changes">
+                    <span class="section-number">12</span>
+                    <h2>Changes to this Privacy Policy</h2>
+                    <p>We may update this Privacy Policy as AU Connect evolves, introduces new features, or changes how
+                        personal information is processed.</p>
+                    <p>When we make changes, we will update the “Last updated” date on this page.</p>
+                    <p>Users are encouraged to review this policy periodically to stay informed about how their
+                        information is handled.</p>
+                </section>
+                <section class="policy-section" id="contact">
+                    <span class="section-number">13</span>
+                    <h2>Contact us</h2>
+                    <p>If you have questions about this Privacy Policy, wish to raise a privacy concern, or want to make
+                        a request concerning your personal information, please contact us.</p>
+                    <div class="contact-card"><span>Email</span><a
+                            href="mailto:min12200514@gmail.com">min12200514@gmail.com</a></div>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner"><span class="footer-brand">AU Connect</span><a class="back-to-top" href="#top">Back to
+                top ↑</a></div>
+    </footer>
+    <script>
+        const sections = [...document.querySelectorAll('.policy-section')];
+        const navLinks = [...document.querySelectorAll('.section-nav a')];
+        const progressBar = document.querySelector('.reading-progress__bar');
+        let currentSection = '';
+        const setActiveSection = (id) => {
+            if (id === currentSection) return;
+            currentSection = id;
+            navLinks.forEach((link) => {
+                const active = link.hash === `#${id}`;
+                if (active) { link.setAttribute('aria-current', 'true'); link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }
+                else link.removeAttribute('aria-current');
+            });
+        };
+        const updateScrollState = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+            progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+            const marker = window.innerHeight * .3;
+            let current = sections[0].id;
+            sections.forEach((section) => { if (section.getBoundingClientRect().top <= marker) current = section.id; });
+            setActiveSection(current);
+        };
+        let scheduled = false;
+        window.addEventListener('scroll', () => { if (!scheduled) { window.requestAnimationFrame(() => { updateScrollState(); scheduled = false; }); scheduled = true; } }, { passive: true });
+        window.addEventListener('resize', updateScrollState);
+        updateScrollState();
+    </script>
 </body>
 
 </html>
